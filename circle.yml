@@ -1,6 +1,10 @@
 dependencies:
   override:
     - pip install -U pytest
+database:
+  override:
+    - mysql -u ubuntu -e "create database circle_test_account"
+    - mysql -u ubuntu circle_test_account < test_account.sql
 test:
   override:
     - pytest
